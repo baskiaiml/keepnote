@@ -1,0 +1,79 @@
+.app-container {
+    background-color: whitesmoke;
+    width: 90%;
+    height: 100%;
+  }
+
+.mat-flat-button:hover{
+  background-color:darkgrey;
+}
+
+.mat-flat-button::selection{
+  background-color:darkslategray;
+}
+
+.keep-c-toggle-view {
+	width: 60%;
+	margin-left: 75%;
+	cursor: pointer;
+}
+
+.search-bar-custom{
+	width: 80%;
+	margin-left: 70%;
+}
+
+.input-search-box-custom{
+	width: 20%;
+	margin-left:100%;
+}
+
+.switchToNoteView {
+	width: 70%;
+	margin-left: 65%;
+	cursor: pointer;
+}
+
+.switchToListView {
+	width: 60%;
+	margin-left: 65%;
+	cursor: pointer;
+}
+
+.mat-toolbar span{
+align-content: space-around;
+}
+
+.header-title-label{
+	font-size:25px;
+	font-family: 'Chakra Petch', sans-serif;
+	color: darkgray;
+}
+
+.header-image-size{
+	width: 35px;
+	height:35px;
+}
+
+.grid-header-custom-layout{
+  left: 0px; 
+  width: calc(((4.5% - 0.875px) * 8) + 7px); 
+  margin-top: 0px; 
+  padding-top: calc(((4.5% - 0.875px) * 1) + 0px);
+}
+
+.custom-toolbar-style{
+	background-color: white;
+	cursor: pointer;
+}
+.custom-toolbar-style:hover{
+	background-color:lightgoldenrodyellow;
+	border-radius: 5%;
+	cursor: pointer;
+}
+.category-input-custom-label{
+	font-size: 14px;
+	padding-left: 10%;
+	cursor: pointer;	
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

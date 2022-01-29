@@ -1,0 +1,53 @@
+<!-- Label to display any error messages -->
+
+
+<!-- Expansion panel to add new notes -->
+
+<div class="keep-component-note-taker-panel">
+    <label class="error-message">{{ errMessage }}</label>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="mat-expansion-panel-header-title note-taker-panel-title">Take a note</mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class='keep-component-note-taker-wrapper'>
+      <mat-form-field>
+        <input matInput [(ngModel)]="note.noteTitle" name="noteTitle" placeholder="Title">
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput [(ngModel)]="note.noteContent" name="noteContent" placeholder="Text"></textarea>
+      </mat-form-field>
+      <mat-action-row>
+        <div class="keep-chip-row">
+          <mat-chip-list *ngIf="isReminderChip">
+            <mat-chip [removable]="true" (removed)="removeReminder(reminder)">
+              {{reminder.reminderDate | date}} {{reminder.reminderTime}}
+              <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
+
+          <mat-chip-list *ngIf="isCategoryApplied">
+            <mat-chip [removable]="true" (removed)="removeCategory(category)">
+              {{category.categoryName}}
+              <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+     
+        <div class="keep-button-row">
+          <button mat-icon-button (click)="openReminderDialog()">
+            <mat-icon>notifications</mat-icon>
+          </button>
+
+          <button mat-icon-button (click)="openCategoryDialog()">
+            <mat-icon>label</mat-icon>
+          </button>
+        </div>
+        <div class="add-keep-button-row">
+          <button mat-icon-button (click)="takeNotes()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </mat-action-row>
+    </div>
+  </mat-expansion-panel>
+</div>

@@ -1,0 +1,39 @@
+<strong *ngIf="errMessage" class="error-message">{{errMessage}}</strong>
+<mat-list >
+<mat-divider></mat-divider>
+    <mat-list-item>
+        <input class='category-input-custom' placeholder="Add New Category"
+         matInput [formControl]="categoryName" required>
+         <button mat-icon-button (click)="onAddNewCategory()">
+            <mat-icon class="mat-icon material-icons add-icon-style">add</mat-icon>
+          </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+         <button mat-button (click)="onEditCategoryDialog()">
+          <span>Rename Category</span><mat-icon class="mat-icon material-icons edit-icon-style">edit</mat-icon>
+          </button>
+      </mat-list-item>
+  <mat-divider></mat-divider>
+  <h3 mat-subheader>Categories</h3>
+  <mat-list-item *ngFor="let category of categories">
+    <button mat-button (click)="onGetNotes(category)"><mat-icon mat-list-icon>label</mat-icon>
+      <span>{{category.categoryName}}</span></button>
+  </mat-list-item>
+</mat-list>
+
+<div *ngIf="isNotesExist">
+<mat-grid-list cols="3" rowHeight="2:1" *ngFor="let note of notes">
+  <mat-grid-tile-header>
+    <label>{{note.noteTitle}}</label>
+  </mat-grid-tile-header>
+  <mat-grid-tile>
+    <label>{{note.noteContent}}</label>
+  </mat-grid-tile>
+  
+</mat-grid-list>
+</div>
+
+<div *ngIf="!isNotesExist">
+  Notes not available under this category
+</div>

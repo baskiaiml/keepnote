@@ -1,0 +1,15 @@
+<label class="error-message">{{ errMessage }}</label>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Pick one" aria-label="Number"  [(ngModel)]="category" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of categories " [value]="option">
+          {{option.categoryName}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <div>
+        <button class="mat-fab-button set-cat-button" (click)="onSave()" cdkFocusInitial>Set Category</button>
+      </div>
+  </form>
+  

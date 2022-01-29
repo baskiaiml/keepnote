@@ -1,0 +1,68 @@
+<mat-card class="mat-card card-display">
+    <mat-card-header>
+      <label class="login-label">Register</label>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <strong *ngIf="submitMessage" class="error-message">{{submitMessage}}</strong>
+      <form>
+        <table cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+                  <input class='userId' placeholder="Enter your User Name" matInput [formControl]="userId" required>
+                  <mat-error *ngIf="userId.invalid">{{getUserNameErrorMessage()}}</mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+              <tr>
+          <td>
+            <mat-form-field>
+              <input class='userPassword' placeholder="Enter your password" matInput type="password" [formControl]="userPassword" required>
+              <mat-error *ngIf="userPassword.invalid">{{getPasswordErrorMessage()}}</mat-error>          
+          </mat-form-field>
+        </td>
+        </tr>
+        <tr>
+        <td>
+            <mat-form-field>
+              <input class='firstName' placeholder="Enter your First Name" matInput [formControl]="firstName" required>
+              <mat-error *ngIf="firstName.invalid">{{getFirstNameErrorMessage()}}</mat-error>          
+          </mat-form-field>
+        </td>
+        </tr>
+        <tr>
+        <td>
+            <mat-form-field>
+              <input class='lastName' placeholder="Enter your Last Name" matInput [formControl]="lastName" required>
+              <mat-error *ngIf="lastName.invalid">{{getLastNameErrorMessage()}}</mat-error>          
+          </mat-form-field>
+        </td>
+        </tr>
+        <tr>
+        <td>
+            <mat-form-field>
+              <input class='emailId' placeholder="Enter your Email Id" matInput  [formControl]="emailId" required>
+              <mat-error *ngIf="emailId.invalid">{{getEmailIdErrorMessage()}}</mat-error>          
+          </mat-form-field>
+        </td>
+        </tr>
+        <tr>
+        <td>
+            <mat-form-field>
+              <input class='mobileNumber' placeholder="Enter your Mobile Number" matInput  [formControl]="mobileNumber" required>
+              <mat-error *ngIf="mobileNumber.invalid">{{getMobileNumberErrorMessage()}}</mat-error>          
+          </mat-form-field>
+        </td>
+        </tr>
+      
+      </table>
+      </form>
+      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="onSubmit()" color="primary">Save</button>
+      <button mat-raised-button color="basic" (click)='onClickRegister()'>Cancel</button>
+    </mat-card-actions>
+  </mat-card>

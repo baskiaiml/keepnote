@@ -1,0 +1,19 @@
+<form>
+  <mat-form-field style="width: 100%">
+    <mat-chip-list #chipList>
+      <mat-chip *ngFor="let note of  this.notesService.searchOption" (removed)="removeOption(option)">
+  
+        <span>{{note.noteTitle}}</span>
+        
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <input #autocompleteInput type="text" placeholder="Search" aria-label="Number" matInput [formControl]="myControl"
+        [matAutocomplete]="auto" [matChipInputFor]="chipList">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let note of autoCompleteList" [value]="note" (onSelectionChange)="filterNoteList($event)">
+          {{note.noteTitle}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-chip-list>
+  
+  </mat-form-field>

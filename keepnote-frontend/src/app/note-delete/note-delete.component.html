@@ -1,0 +1,6 @@
+<h2 mat-dialog-title>Are you sure to delete the Note?</h2>
+<mat-dialog-content>{{note.noteTitle}}</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-button [mat-dialog-close]="true" (click) = "onDeleteNote()">Yes</button>
+</mat-dialog-actions>

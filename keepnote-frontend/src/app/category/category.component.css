@@ -1,0 +1,13 @@
+.set-cat-button:hover{
+    background-color:darkslategray;
+    border-radius: 5%;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  
+  .set-cat-button{
+    background-color:lightgrey;
+    border-radius: 5%;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }

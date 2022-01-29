@@ -1,0 +1,14 @@
+<!-- Include the notes collection with each note rendered as a separate NoteComponent -->
+<div *ngIf="isNoteExist">
+	<div>
+		<mat-grid-list cols="3">
+			<mat-grid-tile *ngFor="let note of notes">
+				<app-note [note]='note' (getNotes)="getNotes($event)"></app-note>
+			</mat-grid-tile>
+		</mat-grid-list>
+	</div>
+</div>
+<div *ngIf="!isNoteExist">
+	<span>No Notes Available to display</span>
+</div>
+ 

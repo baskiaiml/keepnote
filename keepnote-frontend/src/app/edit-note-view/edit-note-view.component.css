@@ -1,0 +1,9 @@
+.keep-c-note-taker-form{
+    display: flex;
+    flex-direction: column;
+  }
+  .keep-c-done-btn-wrapper{
+    display: flex;
+    justify-content: flex-end;
+  }
+  

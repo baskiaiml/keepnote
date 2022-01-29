@@ -1,0 +1,64 @@
+<!-- NoteTakerComponent to be displayed as part of DashboardComponent -->
+<mat-grid-list cols="14" rows="14">
+  <mat-grid-tile [colspan]="14" [rowspan]="1" class="mat-grid-tile grid-header-custom-layout" styles="none;">
+    <mat-toolbar color="basic">
+      <button mat-icon-button (click)="onMenuOpen()">
+        <mat-icon>menu</mat-icon><img src="assets/keep_note.png" class="header-image-size" />
+        <label class="header-title-label">Keep Note</label>
+      </button>
+     <div>
+          <mat-toolbar class="search-bar-custom">
+            <app-search-bar (onSelectedOption)="onSelectedFilter($event)"></app-search-bar>
+          </mat-toolbar>
+      </div>
+      <div class="keep-c-toggle-view" mat>
+          <mat-icon (click)="onClickLogout()">logout</mat-icon>
+        <!--<i *ngIf="isNoteView" class="material-icons switchToListView" (click)="switchToListView()">view_list</i>
+        <i *ngIf="!isNoteView" class="material-icons switchToNoteView" (click)="switchToNoteView()">view_quilt</i>
+      -->
+      </div>
+    </mat-toolbar>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="tile.cols" [rowspan]="tile.rows">     
+      <mat-toolbar color="basic">
+          <mat-toolbar-row class="mat-toolbar-row custom-toolbar-style" (click)="onChangeListView('NOTE')">
+              <mat-icon mat-list-icon>note</mat-icon>
+              <label class="category-input-custom-label">Notes</label>
+          </mat-toolbar-row>
+        
+          <mat-toolbar-row class="mat-toolbar-row custom-toolbar-style" (click)="onChangeListView('REMAINDER')">
+              <mat-icon mat-list-icon>notifications_on</mat-icon>
+              <label class="category-input-custom-label">Reminders</label>
+          </mat-toolbar-row>
+        
+          <mat-toolbar-row class="mat-toolbar-row custom-toolbar-style" (click)="onChangeListView('CATEGORY')">
+              <mat-icon mat-list-icon>label</mat-icon>
+              <label class="category-input-custom-label">Category</label>
+          </mat-toolbar-row>
+        </mat-toolbar>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="12" [rowspan]="12">
+    <mat-drawer-container class="app-container">
+      <mat-drawer-content>
+        <div>
+
+          <app-note-taker (viewupdate)="onViewupdate(true)"></app-note-taker>
+        </div>
+        <!-- <app-note-view  [isupdate]="isupdate"></app-note-view> -->
+        <div [ngSwitch]="viewPage">
+          <app-note-view *ngSwitchCase="'NOTE'" [isupdate]="isupdate"></app-note-view>
+          <app-reminder-view *ngSwitchCase="'REMAINDER'"></app-reminder-view>
+          <app-category-view *ngSwitchCase="'CATEGORY'"></app-category-view>
+        </div>
+        <div *ngIf="isSearchView">          
+                  <app-search-result [searchNotes]='searchNotes'></app-search-result>
+        </div>
+        <!-- Following router outlet displays the NoteViewComponent or ListViewComponent based on primary route -->
+
+
+        <!-- Following named router outlet displays the EditViewComponent based on the secondary route -->
+        <router-outlet name="noteEditOutlet"></router-outlet>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </mat-grid-tile>
+</mat-grid-list>

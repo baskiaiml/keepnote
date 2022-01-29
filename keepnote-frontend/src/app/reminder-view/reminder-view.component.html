@@ -1,0 +1,47 @@
+
+<div>
+    <div>
+      <span>Fired Events</span>
+<mat-grid-list cols="3" colspan="10" rowHeight="2:1" *ngFor="let reminder of firedReminders">
+    <mat-grid-tile-header>
+      <label>{{reminder.reminderName}}</label>
+    </mat-grid-tile-header>
+    <mat-grid-tile [colspan]="3" [rowspan]="3" [style.background]="white">
+      <label>{{reminder.reminderDescription}}</label>
+    </mat-grid-tile>
+    <mat-grid-tile-footer>
+        <label>{{reminder.reminderDate | date}}</label><label>:{{reminder.reminderTime}}</label>
+      </mat-grid-tile-footer>
+  </mat-grid-list>
+</div>
+<div>
+    <span>Today's Events</span>
+<mat-grid-list cols="3" rowHeight="2:1" *ngFor="let reminder of todaysReminders">
+  <mat-grid-tile-header>
+    <label>{{reminder.reminderName}}</label>
+  </mat-grid-tile-header>
+  <mat-grid-tile [colspan]="3" [rowspan]="3" [style.background]="white">
+    <label>{{reminder.reminderDescription}}</label>
+  </mat-grid-tile>
+  <mat-grid-tile-footer>
+      <label>{{reminder.reminderDate | date}}</label><label>:{{reminder.reminderTime}}</label>
+    </mat-grid-tile-footer>
+</mat-grid-list>
+</div>
+<div>
+    <span>Upcoming Events</span>
+<mat-grid-list cols="3"  rowHeight="2:1" *ngFor="let reminder of upcomingReminders">
+  <mat-grid-tile-header>
+    <label>{{reminder.reminderName}}</label>
+  </mat-grid-tile-header>
+  <mat-grid-tile [colspan]="3" [rowspan]="3" [style.background]="white">
+    <label>{{reminder.reminderDescription}}</label>
+  </mat-grid-tile>
+  <mat-grid-tile-footer>
+      <label>{{reminder.reminderDate | date}}</label><label>: {{reminder.reminderTime}}</label>
+    </mat-grid-tile-footer>
+</mat-grid-list>
+</div>
+</div>
+
+

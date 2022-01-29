@@ -1,0 +1,14 @@
+<mat-list>
+      <h3 mat-subheader>Categories</h3>
+      <mat-list-item *ngFor="let category of categories">
+          <button mat-button (click)="onSelectedCategory(category.categoryId)">
+            <mat-icon mat-list-icon>label</mat-icon>
+          <span>{{category.categoryName}}</span></button>  
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      
+      <mat-list-item>
+        <button mat-button (click)="onCategorySelectClose()"><mat-icon mat-list-icon>close</mat-icon>
+          <span>Close</span></button>
+      </mat-list-item>
+    </mat-list>

@@ -1,0 +1,59 @@
+<mat-grid-list cols="3">
+    <mat-grid-tile  *ngFor="let note of searchNotes">
+    <mat-card class="note-card-style">
+        <mat-card-title class="mat-card-title card-custom-title">{{ note.noteTitle }}</mat-card-title>
+        <mat-card-content class="mat-card-content card-custom-content">{{ note.noteContent }}</mat-card-content>
+        <mat-card-actions layout="col" layout-align="center">
+          <div class="col">
+            <mat-chip-list>
+              <mat-chip class="mat-chip mat-primary mat-standard-chip ng-star-inserted custom-chip-style" *ngIf="note?.reminderExist">
+                {{note?.reminder?.reminderDate | date}} {{note?.reminder?.reminderTime}}
+              </mat-chip>
+              <mat-chip class="mat-chip mat-primary mat-standard-chip ng-star-inserted custom-chip-style" *ngIf="note?.categoryExist">
+                {{note?.category?.categoryName}}
+              </mat-chip>
+            </mat-chip-list>
+          </div>
+        </mat-card-actions>
+        <div>
+  
+          <button (click)='openEditView(note)' class="mat-icon-button edit">
+            <mat-icon class="mat-icon material-icons edit-icon-style">edit</mat-icon>
+          </button>
+  
+          <button (click)='openDeleteConfirmDialog(note)' class="mat-icon-button delete">
+            <mat-icon class="mat-icon material-icons delete-icon-style">delete</mat-icon>
+          </button>
+          <button class="mat-icon-button drop-down-menu" [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button class="mat-menu-item ng-star-inserted menu-item-custom" *ngIf="!note?.reminderExist" (click)="onClickOnAddReminder(note)">
+              <mat-icon class="mat-icon material-icons add-icon-style">add</mat-icon><mat-icon class="mat-icon material-icons add-icon-style">notifications_on</mat-icon>
+              <span>Set Reminder</span>
+            </button>
+            <button class="mat-menu-item ng-star-inserted menu-item-custom" *ngIf="note?.reminderExist" (click)="onClickOnEditReminder(note)">
+              <mat-icon class="mat-icon material-icons edit-icon-style">edit</mat-icon><mat-icon class="mat-icon material-icons edit-icon-style">notifications_on</mat-icon>
+              <span>Edit Reminder</span>
+            </button>
+            <button class="mat-menu-item ng-star-inserted menu-item-custom" *ngIf="note?.reminderExist" (click)="onClickOnRemoveReminder(note)">
+              <mat-icon class="mat-icon material-icons delete-icon-style">remove</mat-icon><mat-icon class="mat-icon material-icons delete-icon-style">notifications_off</mat-icon>
+              <span>Remove Reminder</span>
+            </button>
+            <button class="mat-menu-item ng-star-inserted menu-item-custom" *ngIf="!note?.categoryExist" (click)="onClickSetCategory(note)">
+              <mat-icon class="mat-icon material-icons add-icon-style">add</mat-icon><mat-icon class="mat-icon material-icons add-icon-style">label</mat-icon>
+              <span>Set Category</span>
+            </button>
+            <button class="mat-menu-item ng-star-inserted menu-item-custom" *ngIf="note?.categoryExist" (click)="onClickChangeCategory(note)">
+              <mat-icon class="mat-icon material-icons edit-icon-style">edit</mat-icon><mat-icon class="mat-icon material-icons edit-icon-style">label</mat-icon>
+              <span>Change Category</span>
+            </button>
+            <button class="mat-menu-item ng-star-inserted menu-item-custom" *ngIf="note?.categoryExist" (click)="onClickRemoveCategory(note)">
+              <mat-icon class="mat-icon material-icons delete-icon-style">remove</mat-icon><mat-icon class="mat-icon material-icons delete-icon-style">label</mat-icon>
+              <span>Remove Category</span>
+            </button>
+          </mat-menu>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>

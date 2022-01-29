@@ -1,0 +1,28 @@
+<label class="error-message">{{ errMessage }}</label>
+
+<mat-form-field>
+    <input [(ngModel)]="reminder.reminderDate" matInput [matDatepicker]="picker" 
+    placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+ <div class="default-time-example">
+  <input  [(ngModel)]="reminder.reminderTime" placeholder="Choose Time" 
+  aria-label="default time" [ngxTimepicker]="defaultTime" [value]="'06:00 am'"  readonly>
+  <ngx-material-timepicker #defaultTime></ngx-material-timepicker>
+</div> 
+<mat-form-field>
+    <mat-select  [(ngModel)]="reminder.reminderType" matInput placeholder="Reminder Type">
+        <mat-option value="Hourly Reminder">Hourly Reminder</mat-option>
+        <mat-option value="Daily Reminder">Daily Reminder</mat-option>
+        <mat-option value="Weekly Reminder">Weekly Reminder</mat-option>
+        <mat-option valur="Monthly Reminder">Monthly Reminder</mat-option>
+      </mat-select>
+</mat-form-field>
+<div class="keep-c-done-wrapper">
+    <button mat-icon-button (click)="onSave()">
+        <mat-icon>add</mat-icon>
+      </button>
+ <!-- <button mat-button (click)="onSave()" cdkFocusInitial>Set Reminder</button>-->
+</div>

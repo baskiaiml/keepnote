@@ -1,0 +1,9 @@
+<div><label>Edit Category</label></div>
+<mat-list>
+    <button mat-icon-button (click)="onCategoryEdit(selectedCategory)"><mat-icon>edit</mat-icon></button>
+    <input matInput [(ngModel)]="selectedCategory.categoryName" name="categoryName" placeholder="Category Name to be Edited">
+    <button mat-icon-button (click)="onCategoryDelete(selectedCategory)"><mat-icon>delete</mat-icon></button>
+      <mat-list-item *ngFor="let category of categories">
+          <button mat-button (click) ="onSelectPopulateCategory(category)">{{ category.categoryName }}</button>
+      </mat-list-item>
+</mat-list>
