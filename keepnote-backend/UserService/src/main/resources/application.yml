@@ -1,0 +1,16 @@
+spring:
+  data:
+    mongodb:
+#      authentication-database: dbAdmin
+     username: ${MONGO_USER:fsduser}
+     password: ${MONGO_PASSWORD:fsduser}
+     database: ${MONGO_DATABASE:userdb}
+     port: ${MONGO_PORT:27017}
+     host: ${MONGO_HOST:localhost}
+  application:
+    name: user-service
+server:
+  port: 8080
+
+
+
