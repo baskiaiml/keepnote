@@ -1,0 +1,32 @@
+spring:
+  data:
+    mongodb:
+     username: ${MONGO_USER:fsduser}
+     password: ${MONGO_PASSWORD:fsduser}
+     database: ${MONGO_DATABASE:reminderdb}
+     port: ${MONGO_PORT:27017}
+     host: ${MONGO_HOST:localhost}
+  application:
+    name: reminder-service
+
+server:
+  port: 8081
+
+
+
+
+#
+#spring:
+#  data:
+#    mongodb:
+# #     authentication-database:
+#      username: chandan
+#      password: root
+#      database: reminderDb
+#      port: 27017
+#      host: localhost
+#  application:
+#    name: reminder-service
+#
+#server:
+#  port: 8081
