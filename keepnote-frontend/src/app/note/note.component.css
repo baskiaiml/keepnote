@@ -1,0 +1,86 @@
+.card-display{
+    max-width: 20rem;
+    align-self: flex-start;
+}
+
+.note-card-style{
+    margin-bottom: 10px;
+    border-radius: 5%;
+  }
+
+.drop-down-menu {
+    float:right;
+    border-radius: 10%;
+}
+
+.edit-icon-style{
+font-size: 16px; 
+}
+
+.delete-icon-style{
+    font-size: 16px; 
+    color:gray;
+    }
+.delete-icon-style:hover{
+    font-size: 16px; 
+    color:red;
+    transform: scale(1.5);
+        }
+.edit-icon-style:hover{
+    font-size: 16px; 
+    color:blue;
+    transform: scale(1.5);
+}
+
+.edit-icon-style{
+    font-size: 16px; 
+    color:gray;
+}
+
+.add-icon-style:hover{
+    font-size: 16px; 
+    color:green;
+    transform: scale(1.5);
+}
+
+.add-icon-style{
+    font-size: 16px; 
+    color:gray;
+}
+
+.card-custom-title{
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+}
+
+.card-custom-content{
+    font-family: 'Mali', cursive;
+    font-size: 16px;
+}
+
+/* Mat Menu Styles*/
+
+.menu-content-custom{
+    border-radius: 10%;
+}
+
+.menu-item-custom{
+    font-size: 16px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+.menu-item-custom:hover{
+    font-size: 16px;
+    font-family: 'Chakra Petch', sans-serif;
+    background-color: lightskyblue;
+}
+
+/* Mat Chip Custom */
+
+.custom-chip-style{
+background-color:rgb(243, 240, 236);
+}
+
+.custom-chip-style:hover{
+    background-color:rgb(180, 198, 238);
+  }

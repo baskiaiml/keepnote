@@ -1,0 +1,50 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 50%;
+    width: 50%;
+    border-bottom:50px;
+    border-top: 50px;
+    border-left: 50px;
+    border-right: 50px;
+    border-color: blue;
+  }
+  .login-container>* {
+    width: 30%;
+  }
+  .error-message {
+ color:red;
+  }
+
+  
+
+body { 
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+.basic-container {
+  padding: 30px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+.card-display{
+  max-width: 20rem;
+  align-self: flex-start;
+  
+}
+
+.login-label{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 25px;
+  text-align: left;
+}
